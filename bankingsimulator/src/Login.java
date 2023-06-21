@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Login extends JFrame {
-    Login(){
+    Login() {
 
         setTitle("Banking simulator");
 
@@ -16,8 +16,19 @@ public class Login extends JFrame {
         add(label);
 
         JLabel l1 = new JLabel("Welcome to ATM");
-        l1.setBounds(200, 40, 100, 40);
+        l1.setFont(new Font("Osward", Font.BOLD, 38));
+        l1.setBounds(200, 40, 400, 40);
         add(l1);
+
+        JLabel cardno = new JLabel("Card no:");
+        cardno.setFont(new Font("Raleway", Font.BOLD, 28));
+        cardno.setBounds(120, 150, 400, 40);
+        add(cardno);
+
+        JLabel pin = new JLabel("PIN:");
+        pin.setFont(new Font("Raleway", Font.BOLD, 28));
+        pin.setBounds(120, 220, 400, 40);
+        add(pin);
 
         getContentPane().setBackground(Color.WHITE);
 
