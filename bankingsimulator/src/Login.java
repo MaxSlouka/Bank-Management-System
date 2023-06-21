@@ -26,13 +26,17 @@ public class Login extends JFrame {
         add(cardno);
 
         JTextField cardTextField = new JTextField();
-        cardTextField.setBounds(300, 150, 230, 40);
+        cardTextField.setBounds(300, 150, 230, 30);
         add(cardTextField);
 
         JLabel pin = new JLabel("PIN:");
         pin.setFont(new Font("Raleway", Font.BOLD, 28));
         pin.setBounds(120, 220, 400, 40);
         add(pin);
+
+        JTextField pinTextField = new JTextField();
+        pinTextField.setBounds(300, 220, 230, 30);
+        add(pinTextField);
 
         getContentPane().setBackground(Color.WHITE);
 
