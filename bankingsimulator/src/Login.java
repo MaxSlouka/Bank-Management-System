@@ -1,7 +1,14 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Login extends JFrame {
+public class Login extends JFrame implements ActionListener {
+
+    JButton login, clear, singup;
+    JTextField cardTextField;
+    JPasswordField pinTextField;
+
     Login() {
 
         setTitle("Banking simulator");
@@ -25,7 +32,7 @@ public class Login extends JFrame {
         cardno.setBounds(120, 150, 400, 40);
         add(cardno);
 
-        JTextField cardTextField = new JTextField();
+         cardTextField = new JTextField();
         cardTextField.setBounds(300, 150, 230, 30);
         add(cardTextField);
 
@@ -34,26 +41,29 @@ public class Login extends JFrame {
         pin.setBounds(120, 220, 400, 40);
         add(pin);
 
-        JTextField pinTextField = new JTextField();
+        pinTextField = new JPasswordField();
         pinTextField.setBounds(300, 220, 230, 30);
         add(pinTextField);
 
-        JButton login = new JButton("SIGN IN");
+        login = new JButton("SIGN IN");
         login.setBounds(300, 300, 100, 30);
         login.setBackground(Color.BLACK);
         login.setForeground(Color.WHITE);
+        login.addActionListener(this);
         add(login);
 
-        JButton clear = new JButton("CLEAR");
+        clear = new JButton("CLEAR");
         clear.setBounds(430, 300, 100, 30);
         clear.setBackground(Color.BLACK);
         clear.setForeground(Color.WHITE);
+        clear.addActionListener(this);
         add(clear);
 
-        JButton singup = new JButton("SIGN UP");
+        singup = new JButton("SIGN UP");
         singup.setBounds(300, 350, 230, 30);
         singup.setBackground(Color.BLACK);
         singup.setForeground(Color.WHITE);
+        singup.addActionListener(this);
         add(singup);
 
         getContentPane().setBackground(Color.WHITE);
@@ -65,5 +75,19 @@ public class Login extends JFrame {
 
     public static void main(String[] args) {
         new Login();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == clear){
+            cardTextField.setText("");
+            pinTextField.setText("");
+        }
+        if (e.getSource() == login){
+
+        }
+        if (e.getSource() == singup){
+
+        }
     }
 }
