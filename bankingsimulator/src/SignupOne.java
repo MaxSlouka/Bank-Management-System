@@ -108,6 +108,26 @@ public class SignupOne extends JFrame {
         setLayout(null);
         add(marital);
 
+        JRadioButton married = new JRadioButton("Married");
+        married.setBounds(300, 390, 100, 30);
+        married.setBackground(Color.WHITE);
+        add(married);
+
+        JRadioButton unmarried = new JRadioButton("Unmarried");
+        unmarried.setBounds(450, 390, 100, 30);
+        unmarried.setBackground(Color.WHITE);
+        add(unmarried);
+
+        JRadioButton otherRelationship = new JRadioButton("Other");
+        otherRelationship.setBounds(600, 390, 100, 30);
+        otherRelationship.setBackground(Color.WHITE);
+        add(otherRelationship);
+
+        ButtonGroup maritalGroup = new ButtonGroup();
+        maritalGroup.add(married);
+        maritalGroup.add(unmarried);
+        maritalGroup.add(otherRelationship);
+
         JLabel address = new JLabel("Address:");
         address.setFont(new Font("Raleway", Font.BOLD, 20));
         address.setBounds(100, 440, 200, 30);
