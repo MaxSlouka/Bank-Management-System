@@ -29,11 +29,23 @@ public class SignupOne extends JFrame {
         setLayout(null);
         add(name);
 
+        JTextField nameTextField = new JTextField();
+        nameTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        nameTextField.setBounds(300, 140, 400, 30);
+        setLayout(null);
+        add(nameTextField);
+
         JLabel fname = new JLabel("Father´s Name:");
         fname.setFont(new Font("Raleway", Font.BOLD, 20));
         fname.setBounds(100, 190, 200, 30);
         setLayout(null);
         add(fname);
+
+        JTextField fnameTextField = new JTextField();
+        fnameTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        fnameTextField.setBounds(300, 190, 400, 30);
+        setLayout(null);
+        add(fnameTextField);
 
         JLabel dob = new JLabel("Date of Birth:");
         dob.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -47,11 +59,18 @@ public class SignupOne extends JFrame {
         setLayout(null);
         add(gender);
 
+
         JLabel email = new JLabel("Email Address:");
         email.setFont(new Font("Raleway", Font.BOLD, 20));
         email.setBounds(100, 340, 200, 30);
         setLayout(null);
         add(email);
+
+        JTextField emailTextField = new JTextField();
+        emailTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        emailTextField.setBounds(300, 340, 400, 30);
+        setLayout(null);
+        add(emailTextField);
 
         JLabel marital = new JLabel("Marital Status:");
         marital.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -65,23 +84,47 @@ public class SignupOne extends JFrame {
         setLayout(null);
         add(address);
 
+        JTextField addressTextField = new JTextField();
+        addressTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        addressTextField.setBounds(300, 440, 400, 30);
+        setLayout(null);
+        add(addressTextField);
+
         JLabel city = new JLabel("City:");
         city.setFont(new Font("Raleway", Font.BOLD, 20));
         city.setBounds(100, 490, 200, 30);
         setLayout(null);
         add(city);
 
+        JTextField cityTextField = new JTextField();
+        cityTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        cityTextField.setBounds(300, 490, 400, 30);
+        setLayout(null);
+        add(cityTextField);
+
         JLabel state = new JLabel("State:");
         state.setFont(new Font("Raleway", Font.BOLD, 20));
-        state.setBounds(100, 530, 200, 30);
+        state.setBounds(100, 540, 200, 30);
         setLayout(null);
         add(state);
 
+        JTextField stateTextField = new JTextField();
+        stateTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        stateTextField.setBounds(300, 540, 400, 30);
+        setLayout(null);
+        add(stateTextField);
+
         JLabel pincode = new JLabel("Pin Code:");
         pincode.setFont(new Font("Raleway", Font.BOLD, 20));
-        pincode.setBounds(100, 580, 200, 30);
+        pincode.setBounds(100, 590, 200, 30);
         setLayout(null);
         add(pincode);
+
+        JTextField pincodeTextField = new JTextField();
+        pincodeTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        pincodeTextField.setBounds(300, 590, 400, 30);
+        setLayout(null);
+        add(pincodeTextField);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(850, 800);
