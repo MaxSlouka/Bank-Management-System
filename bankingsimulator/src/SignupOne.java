@@ -69,6 +69,26 @@ public class SignupOne extends JFrame {
         setLayout(null);
         add(gender);
 
+        JRadioButton male = new JRadioButton("Male");
+        male.setBounds(300, 290, 60, 30);
+        male.setBackground(Color.WHITE);
+        add(male);
+
+        JRadioButton female = new JRadioButton("Female");
+        female.setBounds(450, 290, 120, 30);
+        female.setBackground(Color.WHITE);
+        add(female);
+
+        JRadioButton other = new JRadioButton("Other");
+        other.setBounds(600, 290, 60, 30);
+        other.setBackground(Color.WHITE);
+        add(other);
+
+        ButtonGroup genderGroup = new ButtonGroup();
+        genderGroup.add(male);
+        genderGroup.add(female);
+        genderGroup.add(other);
+
 
         JLabel email = new JLabel("Email Address:");
         email.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -140,6 +160,8 @@ public class SignupOne extends JFrame {
         setSize(850, 800);
         setLocation(350, 10);
         setVisible(true);
+        getContentPane().setBackground(Color.WHITE);
+
     }
 
     public static void main(String[] args) {
