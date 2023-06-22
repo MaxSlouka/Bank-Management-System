@@ -176,6 +176,13 @@ public class SignupOne extends JFrame {
         setLayout(null);
         add(pincodeTextField);
 
+        JButton next = new JButton("Next");
+        next.setFont(new Font("Raleway", Font.BOLD, 14));
+        next.setBounds(600, 640, 100, 30);
+        next.setBackground(Color.BLACK);
+        next.setForeground(Color.WHITE);
+        add(next);
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(850, 800);
         setLocation(350, 10);
