@@ -3,13 +3,21 @@ import com.toedter.calendar.JDateChooser;
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
-
-public class SignupOne extends JFrame {
+import java.awt.event.*;
+import javax.swing.JTextField;
+import javax.swing.JRadioButton;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JFrame;
+public class SignupOne extends JFrame implements ActionListener {
 
     Long formnum;
 
+    JDateChooser dobChooser;
+
     ButtonGroup genderGroup, maritalGroup;
-    JTextField nameTextField, fnameTextField, emailTextField, addressTextField, cityTextField, pincodeTextField, stateTextField, dobTextField, genderTextField, maritalTextField, accountTypeTextField, citizenTextField, mobileTextField, securityQuestionTextField, answerTextField;
+    JTextField nameTextField, fnameTextField, emailTextField, addressTextField, cityTextField, pincodeTextField, stateTextField, dobTextField;
     JButton next;
     JRadioButton otherRelationship, unmarried, married, other, female, male;
 
@@ -65,12 +73,12 @@ public class SignupOne extends JFrame {
         setLayout(null);
         add(dob);
 
-        JDateChooser dobTextField = new JDateChooser();
-        dobTextField.setFont(new Font("Raleway", Font.BOLD, 14));
-        dobTextField.setBounds(300, 240, 400, 30);
-        dobTextField.setForeground(new Color(105, 105, 105));
+        dobChooser = new JDateChooser();
+        dobChooser.setFont(new Font("Raleway", Font.BOLD, 14));
+        dobChooser.setBounds(300, 240, 400, 30);
+        dobChooser.setForeground(new Color(105, 105, 105));
         setLayout(null);
-        add(dobTextField);
+        add(dobChooser);
 
         gender = new JLabel("Gender:");
         gender.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -190,6 +198,7 @@ public class SignupOne extends JFrame {
         next.setBounds(600, 640, 100, 30);
         next.setBackground(Color.BLACK);
         next.setForeground(Color.WHITE);
+        next.addActionListener(this);
         add(next);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -203,4 +212,49 @@ public class SignupOne extends JFrame {
     public static void main(String[] args) {
         new SignupOne();
     }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String fname = fnameTextField.getText();
+        String name = nameTextField.getText();
+        java.util.Date dob = dobChooser.getDate();;
+        String formno = "" + formnum;
+        String gender = null;
+        if (male.isSelected()) {
+            gender = "Male";
+        } else if (female.isSelected()) {
+            gender = "Female";
+        } else if (other.isSelected()) {
+            gender = "Other";
+        }
+        String email = emailTextField.getText();
+        String marital = null;
+        if (married.isSelected()) {
+            marital = "Married";
+        } else if (unmarried.isSelected()) {
+            marital = "Unmarried";
+        } else if (otherRelationship.isSelected()) {
+            marital = "Other";
+        }
+
+        String address = addressTextField.getText();
+        String city = cityTextField.getText();
+        String state = stateTextField.getText();
+        String pincode = pincodeTextField.getText();
+
+        try {
+            if (name.equals("")) {
+                JOptionPane.showMessageDialog(null, "Name is Required");
+            } else {
+                Conn c = new Conn();
+                String query = "insert into signup values('" + formnum + "','" + name + "', '" + fname + "', '" + dob + "','" + gender + "','" + email + "', '" + marital + "','" + address + "', '" + city + "', '" + state + "', '" + pincode + "')";
+                c.s.executeUpdate(query);
+            }
+        } catch (Exception ex) {
+            System.out.println(
+                    "Error: " + ex
+            );
+        }
+    }
+
 }
