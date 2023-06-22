@@ -1,3 +1,6 @@
+import com.toedter.calendar.JDateChooser;
+import org.jdatepicker.JDatePicker;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
@@ -52,6 +55,13 @@ public class SignupOne extends JFrame {
         dob.setBounds(100, 240, 200, 30);
         setLayout(null);
         add(dob);
+
+        JDateChooser dobTextField = new JDateChooser();
+        dobTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        dobTextField.setBounds(300, 240, 400, 30);
+        dobTextField.setForeground(new Color(105, 105, 105));
+        setLayout(null);
+        add(dobTextField);
 
         JLabel gender = new JLabel("Gender:");
         gender.setFont(new Font("Raleway", Font.BOLD, 20));
