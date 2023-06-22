@@ -1,6 +1,4 @@
 import com.toedter.calendar.JDateChooser;
-import org.jdatepicker.JDatePicker;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
