@@ -2,7 +2,6 @@ import com.toedter.calendar.JDateChooser;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Random;
 import java.awt.event.*;
 import javax.swing.JTextField;
 import javax.swing.JRadioButton;
@@ -15,12 +14,14 @@ public class SignupTwo extends JFrame implements ActionListener {
 
     Long formnum;
 
+    JComboBox religionComboBox, categoryComboBox, incomeComboBox, educationComboBox, occupationComboBox;
+
     JDateChooser dobChooser;
 
-    ButtonGroup genderGroup, maritalGroup;
-    JTextField nameTextField, fnameTextField, emailTextField, addressTextField, cityTextField, pincodeTextField, stateTextField, dobTextField;
+    ButtonGroup seniorButtonGroup, existingButtonGroup;
+    JTextField nameTextField, fnameTextField, emailTextField, paTextField, aadharTexField, pincodeTextField, stateTextField, dobTextField;
     JButton next;
-    JRadioButton otherRelationship, unmarried, married, other, female, male;
+    JRadioButton yes, no, yes1, no1;
 
     JLabel additionalDetails, religion, category, income, education,
             qualification, occupation, pan, aadhar, state, pincode;
@@ -41,9 +42,9 @@ public class SignupTwo extends JFrame implements ActionListener {
         setLayout(null);
         add(religion);
 
-        String[] religion = {"-- choose below --","Atheist", "Hindu", "Muslim", "Sikh", "Christian", "Other"};
+        String[] religion = {"-- choose below --", "Atheist", "Hindu", "Muslim", "Sikh", "Christian", "Other"};
 
-        JComboBox religionComboBox = new JComboBox(religion);
+        religionComboBox = new JComboBox(religion);
         religionComboBox.setFont(new Font("Raleway", Font.BOLD, 14));
         religionComboBox.setBounds(300, 140, 400, 30);
         religionComboBox.setBackground(Color.WHITE);
@@ -56,9 +57,9 @@ public class SignupTwo extends JFrame implements ActionListener {
         category.setBounds(100, 190, 200, 30);
         setLayout(null);
         add(category);
-        String[] valCategory = {"-- choose below --","General", "OBC", "SC", "ST", "Other"};
+        String[] valCategory = {"-- choose below --", "General", "OBC", "SC", "ST", "Other"};
 
-        JComboBox categoryComboBox = new JComboBox(valCategory);
+        categoryComboBox = new JComboBox(valCategory);
         categoryComboBox.setFont(new Font("Raleway", Font.BOLD, 14));
         categoryComboBox.setBounds(300, 190, 400, 30);
         categoryComboBox.setBackground(Color.WHITE);
@@ -72,9 +73,9 @@ public class SignupTwo extends JFrame implements ActionListener {
         setLayout(null);
         add(income);
 
-        String[] valIncome = {"-- choose below --","None", "< 1,500$", "< 3,000$", "< 6,000$", "Upto 10,000$", "Upto 20,000$", "Upto 50,000$", "Upto 100,000$"};
+        String[] valIncome = {"-- choose below --", "None", "< 1,500$", "< 3,000$", "< 6,000$", "Upto 10,000$", "Upto 20,000$", "Upto 50,000$", "Upto 100,000$"};
 
-        JComboBox incomeComboBox = new JComboBox(valIncome);
+        incomeComboBox = new JComboBox(valIncome);
         incomeComboBox.setFont(new Font("Raleway", Font.BOLD, 14));
         incomeComboBox.setBounds(300, 240, 400, 30);
         incomeComboBox.setBackground(Color.WHITE);
@@ -94,8 +95,8 @@ public class SignupTwo extends JFrame implements ActionListener {
         setLayout(null);
         add(qualification);
 
-        String[] valEducation = {"-- choose below --","Non-Graduate", "Graduate", "Post-Graduate", "Doctorate", "Others"};
-        JComboBox educationComboBox = new JComboBox(valEducation);
+        String[] valEducation = {"-- choose below --", "Non-Graduate", "Graduate", "Post-Graduate", "Doctorate", "Others"};
+        educationComboBox = new JComboBox(valEducation);
         educationComboBox.setFont(new Font("Raleway", Font.BOLD, 14));
         educationComboBox.setBounds(300, 320, 400, 30);
         educationComboBox.setBackground(Color.WHITE);
@@ -109,8 +110,8 @@ public class SignupTwo extends JFrame implements ActionListener {
         setLayout(null);
         add(occupation);
 
-        String[] occupationValues = {"-- choose below --","Salaried", "Self-Employed", "Business", "Student", "Retired", "Others"};
-        JComboBox occupationComboBox = new JComboBox(occupationValues);
+        String[] occupationValues = {"-- choose below --", "Salaried", "Self-Employed", "Business", "Student", "Retired", "Others"};
+        occupationComboBox = new JComboBox(occupationValues);
         occupationComboBox.setFont(new Font("Raleway", Font.BOLD, 14));
         occupationComboBox.setBounds(300, 390, 400, 30);
         occupationComboBox.setBackground(Color.WHITE);
@@ -118,22 +119,17 @@ public class SignupTwo extends JFrame implements ActionListener {
         setLayout(null);
         add(occupationComboBox);
 
-        maritalGroup = new ButtonGroup();
-        maritalGroup.add(married);
-        maritalGroup.add(unmarried);
-        maritalGroup.add(otherRelationship);
-
         pan = new JLabel("PAN Number:");
         pan.setFont(new Font("Raleway", Font.BOLD, 20));
         pan.setBounds(100, 440, 200, 30);
         setLayout(null);
         add(pan);
 
-        addressTextField = new JTextField();
-        addressTextField.setFont(new Font("Raleway", Font.BOLD, 14));
-        addressTextField.setBounds(300, 440, 400, 30);
+        paTextField = new JTextField();
+        paTextField.setFont(new Font("Raleway", Font.BOLD, 14));
+        paTextField.setBounds(300, 440, 400, 30);
         setLayout(null);
-        add(addressTextField);
+        add(paTextField);
 
         aadhar = new JLabel("Aadhar Number:");
         aadhar.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -141,11 +137,11 @@ public class SignupTwo extends JFrame implements ActionListener {
         setLayout(null);
         add(aadhar);
 
-        cityTextField = new JTextField();
-        cityTextField.setFont(new Font("Raleway", Font.BOLD, 14));
-        cityTextField.setBounds(300, 490, 400, 30);
+        aadharTexField = new JTextField();
+        aadharTexField.setFont(new Font("Raleway", Font.BOLD, 14));
+        aadharTexField.setBounds(300, 490, 400, 30);
         setLayout(null);
-        add(cityTextField);
+        add(aadharTexField);
 
         state = new JLabel("Senior Citizen:");
         state.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -153,11 +149,23 @@ public class SignupTwo extends JFrame implements ActionListener {
         setLayout(null);
         add(state);
 
-        stateTextField = new JTextField();
-        stateTextField.setFont(new Font("Raleway", Font.BOLD, 14));
-        stateTextField.setBounds(300, 540, 400, 30);
+        yes = new JRadioButton("Yes");
+        yes.setFont(new Font("Raleway", Font.BOLD, 14));
+        yes.setBackground(Color.WHITE);
+        yes.setBounds(300, 540, 100, 30);
         setLayout(null);
-        add(stateTextField);
+        add(yes);
+
+        no = new JRadioButton("No");
+        no.setFont(new Font("Raleway", Font.BOLD, 14));
+        no.setBackground(Color.WHITE);
+        no.setBounds(450, 540, 100, 30);
+        setLayout(null);
+        add(no);
+
+        seniorButtonGroup = new ButtonGroup();
+        seniorButtonGroup.add(yes);
+        seniorButtonGroup.add(no);
 
         pincode = new JLabel("Existing Account:");
         pincode.setFont(new Font("Raleway", Font.BOLD, 20));
@@ -165,11 +173,23 @@ public class SignupTwo extends JFrame implements ActionListener {
         setLayout(null);
         add(pincode);
 
-        pincodeTextField = new JTextField();
-        pincodeTextField.setFont(new Font("Raleway", Font.BOLD, 14));
-        pincodeTextField.setBounds(300, 590, 400, 30);
+        yes1 = new JRadioButton("Yes");
+        yes1.setFont(new Font("Raleway", Font.BOLD, 14));
+        yes1.setBackground(Color.WHITE);
+        yes1.setBounds(300, 590, 100, 30);
         setLayout(null);
-        add(pincodeTextField);
+        add(yes1);
+
+        no1 = new JRadioButton("No");
+        no1.setFont(new Font("Raleway", Font.BOLD, 14));
+        no1.setBackground(Color.WHITE);
+        no1.setBounds(450, 590, 100, 30);
+        setLayout(null);
+        add(no1);
+
+        existingButtonGroup = new ButtonGroup();
+        existingButtonGroup.add(yes1);
+        existingButtonGroup.add(no1);
 
         next = new JButton("Next");
         next.setFont(new Font("Raleway", Font.BOLD, 14));
@@ -193,7 +213,7 @@ public class SignupTwo extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        String fname = fnameTextField.getText();
+      /*  String fname = fnameTextField.getText();
         String name = nameTextField.getText();
         java.util.Date dob = dobChooser.getDate();
         ;
@@ -216,8 +236,6 @@ public class SignupTwo extends JFrame implements ActionListener {
             marital = "Other";
         }
 
-        String address = addressTextField.getText();
-        String city = cityTextField.getText();
         String state = stateTextField.getText();
         String pincode = pincodeTextField.getText();
 
@@ -226,14 +244,14 @@ public class SignupTwo extends JFrame implements ActionListener {
                 JOptionPane.showMessageDialog(null, "Name is Required");
             } else {
                 Conn c = new Conn();
-                String query = "insert into signup values('" + formnum + "','" + name + "', '" + fname + "', '" + dob + "','" + gender + "','" + email + "', '" + marital + "','" + address + "', '" + city + "', '" + state + "', '" + pincode + "')";
+                String query = "insert into signup values('" + formnum + "','" + name + "', '" + fname + "', '" + dob + "','" + gender + "','" + email + "', '" + marital + "','" + "', '" + "', '" + state + "', '" + pincode + "')";
                 c.s.executeUpdate(query);
             }
         } catch (Exception ex) {
             System.out.println(
                     "Error: " + ex
             );
-        }
+        } */
     }
 
 }
