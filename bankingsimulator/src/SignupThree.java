@@ -1,7 +1,10 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
 
-public class SignupThree  extends JFrame{
+public class SignupThree extends JFrame implements ActionListener {
 
     JLabel card, cardNumber, cardDetails, pin, pinNumber, pinDetails, services;
 
@@ -12,7 +15,11 @@ public class SignupThree  extends JFrame{
     JButton submit, cancel;
     ButtonGroup group;
 
-    public SignupThree() {
+    static Long formnum;
+
+    public SignupThree(Long formnum) {
+        this.formnum = formnum;
+
 
         setTitle("NEW ACCOUNT APPLICATION FORM - PAGE 3");
 
@@ -140,6 +147,7 @@ public class SignupThree  extends JFrame{
         submit.setBackground(Color.BLACK);
         submit.setForeground(Color.WHITE);
         submit.setBounds(250, 720, 100, 30);
+        submit.addActionListener(this);
         add(submit);
 
         cancel = new JButton("Cancel");
@@ -147,6 +155,7 @@ public class SignupThree  extends JFrame{
         cancel.setBackground(Color.BLACK);
         cancel.setForeground(Color.WHITE);
         cancel.setBounds(420, 720, 100, 30);
+        cancel.addActionListener(this);
         add(cancel);
 
         setSize(850, 820);
@@ -158,6 +167,60 @@ public class SignupThree  extends JFrame{
     }
 
     public static void main(String[] args) {
-        new SignupThree();
+        new SignupThree(formnum);
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == submit) {
+            String accountType = null;
+            if (r1.isSelected()) {
+                accountType = "Saving Account";
+            } else if (r2.isSelected()) {
+                accountType = "Fixed Deposit Account";
+            } else if (r3.isSelected()) {
+                accountType = "Current Account";
+            } else if (r4.isSelected()) {
+                accountType = "Recurring Deposit Account";
+            }
+            Random random = new Random();
+            String cardnumber = "" + Math.abs((random.nextLong() % 90000000L) + 5040936000000000L);
+            String pinnumber = "" + Math.abs((random.nextInt() % 9000L) + 1000L);
+            String facility = "";
+            if (c1.isSelected()) {
+                facility += " ATM Card";
+            } else if (c2.isSelected()) {
+                facility += " Internet Banking";
+            } else if (c3.isSelected()) {
+                facility += " Mobile Banking";
+            } else if (c4.isSelected()) {
+                facility += " EMAIL & SMS Alerts";
+            } else if (c5.isSelected()) {
+                facility += " Cheque Book";
+            } else if (c6.isSelected()) {
+                facility += " E-Statement";
+            }
+
+            try {
+                if(accountType.equals("")){
+                    JOptionPane.showMessageDialog(null, "Fill all the required fields");
+                    System.out.println(e);
+            } else {
+                    Conn conn = new Conn();
+                    String q1 = "insert into signupthree values('" + formnum + "','" + accountType + "','" + cardnumber + "','" + pinnumber + "','" + facility + "')";
+                    String pin = pinnumber;
+                    String q2 = "insert into login values('" + formnum + "','" + cardnumber + "','" + pin + "')";
+                    conn.s.executeUpdate(q1);
+                    conn.s.executeUpdate(q2);
+                    JOptionPane.showMessageDialog(null, "Card Number: " + cardnumber + "\n Pin: " + pinnumber);
+                    setVisible(false);
+                }
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        } else if (e.getSource() == cancel) {
+
+        }
     }
 }
+
