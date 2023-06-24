@@ -111,6 +111,29 @@ public class SignupThree  extends JFrame{
         c3.setBounds(100, 550, 200, 30);
         add(c3);
 
+        c4 = new JCheckBox("EMAIL & SMS Alerts");
+        c4.setFont(new Font("Raleway", Font.BOLD, 16));
+        c4.setBackground(Color.WHITE);
+        c4.setBounds(350, 550, 200, 30);
+        add(c4);
+
+        c5 = new JCheckBox("Cheque Book");
+        c5.setFont(new Font("Raleway", Font.BOLD, 16));
+        c5.setBackground(Color.WHITE);
+        c5.setBounds(100, 600, 200, 30);
+        add(c5);
+
+        c6 = new JCheckBox("E-Statement");
+        c6.setFont(new Font("Raleway", Font.BOLD, 16));
+        c6.setBackground(Color.WHITE);
+        c6.setBounds(350, 600, 200, 30);
+        add(c6);
+
+        c7 = new JCheckBox("I hereby declares that the above entered details correct to th best of my knowledge.", true);
+        c7.setFont(new Font("Raleway", Font.BOLD, 12));
+        c7.setBackground(Color.WHITE);
+        c7.setBounds(100, 680, 600, 20);
+        add(c7);
 
         setSize(850, 820);
         setLocation(350, 90);
