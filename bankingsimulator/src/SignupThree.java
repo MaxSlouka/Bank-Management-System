@@ -9,7 +9,7 @@ public class SignupThree  extends JFrame{
 
     JRadioButton r1, r2, r3, r4;
     JLabel l1, type;
-
+    JButton submit, cancel;
     ButtonGroup group;
 
     public SignupThree() {
@@ -134,6 +134,20 @@ public class SignupThree  extends JFrame{
         c7.setBackground(Color.WHITE);
         c7.setBounds(100, 680, 600, 20);
         add(c7);
+
+        submit = new JButton("Submit");
+        submit.setFont(new Font("Raleway", Font.BOLD, 14));
+        submit.setBackground(Color.BLACK);
+        submit.setForeground(Color.WHITE);
+        submit.setBounds(250, 720, 100, 30);
+        add(submit);
+
+        cancel = new JButton("Cancel");
+        cancel.setFont(new Font("Raleway", Font.BOLD, 14));
+        cancel.setBackground(Color.BLACK);
+        cancel.setForeground(Color.WHITE);
+        cancel.setBounds(420, 720, 100, 30);
+        add(cancel);
 
         setSize(850, 820);
         setLocation(350, 90);
