@@ -9,9 +9,10 @@ public class Transactions extends JFrame implements ActionListener {
     JLabel text, image;
     ImageIcon i1, i3;
     Image i2;
+    String pinnumber;
 
-    Transactions() {
-
+    Transactions(String pinnumber) {
+        this.pinnumber = pinnumber;
         setLayout(null);
 
         i1 = new ImageIcon("bankingsimulator\\src\\icons\\atm.jpg");
@@ -29,30 +30,37 @@ public class Transactions extends JFrame implements ActionListener {
 
         deposit = new JButton("Deposit");
         deposit.setBounds(170, 415, 150, 30);
+        deposit.addActionListener(this);
         image.add(deposit);
 
         withdrawal = new JButton("Cash Withdrawal");
         withdrawal.setBounds(355, 415, 150, 30);
+        withdrawal.addActionListener(this);
         image.add(withdrawal);
 
         fastCash = new JButton("Fast Cash");
         fastCash.setBounds(170, 450, 150, 30);
+        fastCash.addActionListener(this);
         image.add(fastCash);
 
         ministatement = new JButton("Mini Statement");
         ministatement.setBounds(355, 450, 150, 30);
+        ministatement.addActionListener(this);
         image.add(ministatement);
 
         pinchange = new JButton("Pin Change");
         pinchange.setBounds(170, 485, 150, 30);
+        pinchange.addActionListener(this);
         image.add(pinchange);
 
         balanceenquiry = new JButton("Balance Enquiry");
         balanceenquiry.setBounds(355, 485, 150, 30);
+        balanceenquiry.addActionListener(this);
         image.add(balanceenquiry);
 
         exit = new JButton("Exit");
         exit.setBounds(355, 520, 150, 30);
+        exit.addActionListener(this);
         image.add(exit);
 
 
@@ -63,11 +71,13 @@ public class Transactions extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-        new Transactions();
+        new Transactions("");
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if (e.getSource() == exit) {
+            System.exit(0);
+        }
     }
 }
